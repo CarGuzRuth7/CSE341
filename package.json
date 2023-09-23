@@ -1,14 +1,14 @@
 {
   "name": "cse341",
   "version": "1.0.0",
-  "description": "",
+  "description": "CSE341 class projects",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ruth Cardona",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -18,5 +18,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "18.16.0"
   }
 }

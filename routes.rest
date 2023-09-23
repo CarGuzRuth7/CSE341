@@ -9,7 +9,16 @@ GET http://localhost:3000/contacts/650dc6a1c4bfced2bd80717d
 GET http://localhost:3000/contacts/650dc6a1c4bfced2bd80717e
 ###
 GET http://localhost:3000/contacts/650dc6a1c4bfced2bd80717f
-
+###
 
 //PRODUCTION DEPLOYS
+
+GET https://cse341-l1-rc.onrender.com/contacts
+###
+GET https://cse341-l1-rc.onrender.com/contacts/650dc6a1c4bfced2bd80717d
+###
+GET https://cse341-l1-rc.onrender.com/contacts/650dc6a1c4bfced2bd80717e
+###
+GET https://cse341-l1-rc.onrender.com/contacts/650dc6a1c4bfced2bd80717f
+###
 

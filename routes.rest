@@ -50,3 +50,31 @@ GET https://cse341-l1-rc.onrender.com/contacts/650dc6a1c4bfced2bd80717e
 GET https://cse341-l1-rc.onrender.com/contacts/650dc6a1c4bfced2bd80717f
 ###
 
+//Post a new contact
+POST https://cse341-l1-rc.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Michi",
+  "lastName": "Miaw",
+  "email": "example@catmail.com",
+  "favoriteColor": "none",
+  "birthday": "May 27th "
+}
+###
+// Update Contact by ID
+PUT https://cse341-l1-rc.onrender.com/contacts/651841ef94822fed34756883 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Michi",
+    "lastName": "Miaw",
+    "email": "imaflufflycat@catmail.com",
+    "favoriteColor": "green",
+    "birthday": "Feb 18th"
+}
+###
+//Delete Contact by ID
+DELETE https://cse341-l1-rc.onrender.com/contacts/65172c0e0154de5374b23caa HTTP/1.1
+###
+

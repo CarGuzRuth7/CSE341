@@ -1,19 +1,17 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connection');
 const cors = require('cors');
 const port = process.env.PORT || 3000;
 
-app
-.use(cors())
-.use('/', require('./routes'));
- 
+app.use(cors()).use(express.json()).use('/', require('./routes'));
+
 // app.listen(port, () => {
 //   console.log('Web Server is listening at port ' + port);
 // });
 
-mongodb.initDB((err, mongodb) => {
+mongodb.initDB((err) => {
   if (err) {
     console.log(err);
   } else {

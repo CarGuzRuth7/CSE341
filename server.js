@@ -5,7 +5,20 @@ const mongodb = require('./db/connection');
 const cors = require('cors');
 const port = process.env.PORT || 3000;
 
-app.use(cors()).use(express.json()).use('/', require('./routes'));
+app
+  .use(cors())
+  .use(express.json())
+  .use('/', require('./routes'))
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://cse341-contacts-frontend.netlify.app');
+    res.setHeader(
+      'Access-Control-Allow-headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+    );
+    res.setHeader('Content-Type', 'application/json');
+    next();
+  });
 
 // app.listen(port, () => {
 //   console.log('Web Server is listening at port ' + port);

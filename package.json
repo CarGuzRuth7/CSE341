@@ -3,17 +3,8 @@
   "version": "1.0.0",
   "description": "CSE341 class projects",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
-  },
-  "keywords": [],
-  "author": "Ruth Cardona",
-  "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -21,7 +12,7 @@
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.50.0",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^3.0.1",
@@ -30,5 +21,14 @@
   },
   "engines": {
     "node": "18.16.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "author": "Ruth Cardona",
+  "license": "ISC"
 }

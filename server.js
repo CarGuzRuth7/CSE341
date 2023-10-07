@@ -10,13 +10,11 @@ app
   .use(express.json())
   .use('/', require('./routes'))
   .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Origin', 'https://cse341-contacts-frontend.netlify.app');
     res.setHeader(
       'Access-Control-Allow-headers',
       'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
     );
-    res.setHeader('Content-Type', 'application/json');
     next();
   });
 

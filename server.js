@@ -6,8 +6,12 @@ const cors = require('cors');
 const port = process.env.PORT || 3000;
 
 app
-  .use(cors())
-  .use(express.json())
+  .use(cors(
+    {
+      origin: '*',
+      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+    }
+  ))  
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Origin', 'https://cse341-contacts-frontend.netlify.app');
@@ -17,6 +21,7 @@ app
     );
     next();
   })
+  .use(express.json())
   .use('/', require('./routes'));
 
 // app.listen(port, () => {

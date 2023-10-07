@@ -6,13 +6,10 @@ const cors = require('cors');
 const port = process.env.PORT || 3000;
 
 app
-  .use(cors())  
+  .use(cors())
   .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      'Access-Control-Allow-headers',
-      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-    );
+    res.setHeader('Access-Control-Allow-Origin', '*'),
+    res.setHeader('Access-Control-Allow-Credentials', true)
     next();
   })
   .use(express.json())

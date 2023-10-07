@@ -14,23 +14,35 @@ const db = require('../db/connection');
 //GET requests
 //Obtain all db info
 const getAllContacts = async (req, res) => {
-  const getAllData = await db.getDb().db('cse341').collection('contacts').find();
+  try {
+    const getAllData = await db.getDb().db('cse341').collection('contacts').find();
 
-  getAllData.toArray().then((data) => {
-    res.send(data).status(200);
-  });
+    getAllData.toArray().then((data) => {
+      res.send(data).status(200);
+    });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
 };
 const getContactById = async (req, res) => {
   //get a single data from id
-  const getSingleData = await db
-    .getDb()
-    .db('cse341')
-    .collection('contacts')
-    .find({ _id: new ObjectId(req.params.id) });
-
-  getSingleData.toArray().then((data) => {
-    res.send(data).status(200);
-  });
+  try {
+    const idParam = new ObjectId(req.params.id);
+    const getSingleData = await db
+      .getDb()
+      .db('cse341')
+      .collection('contacts')
+      .find({ _id: idParam });
+    getSingleData.toArray().then((data) => {
+      if (data == '') {
+        res.status(404).send(data.error || idParam + ' ID Not Found');
+      } else {
+        res.send(data).status(200);
+      }
+    });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
 };
 
 //POST request
@@ -72,7 +84,7 @@ const updateContact = async (req, res) => {
   if (updateContact.modifiedCount > 0) {
     res.status(204).send(updateContact);
   } else {
-    res.status(500).send(updateContact.error || 'Could not update document');
+    res.status(500).send(updateContact.error || 'Could not update document or does not exist');
   }
 };
 
@@ -84,7 +96,7 @@ const deleteContact = async (req, res) => {
   if (deleteContact.deletedCount > 0) {
     res.status(200).send(deleteContact);
   } else {
-    res.status(500).send(deleteContact.error || 'Could not delete document');
+    res.status(500).send(deleteContact.error || 'Could not delete document or does not exist');
   }
 };
 

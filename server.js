@@ -8,8 +8,9 @@ const port = process.env.PORT || 3000;
 app
   .use(cors())
   .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', 'https://cse341-contacts-frontend.netlify.app/');
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE")
+    res.header('Access-Control-Allow-Credentials', true);
     next();
   })
   .use(express.json())
